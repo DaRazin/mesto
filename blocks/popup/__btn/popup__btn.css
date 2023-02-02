@@ -1,0 +1,7 @@
+.popup__btn {
+  cursor: pointer;
+}
+
+.popup__btn:hover {
+  opacity: 0.6;
+}
