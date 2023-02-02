@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <meta name="description" content="----------------------------------------------">
+  <meta name="keywords" content="--------------------------------------------------">
+  <meta name="author" content="Разин Даниил">
+  <title>mesto</title>
+  <link rel="stylesheet" href="./pages/index.css">
+</head>
+<body class="page">
+  <header class="header">
+    <img src="./images/logo.png" class="header__logo" alt="Логотип">
+  </header>
+  <main class="content">
+    <section class="profile">
+      <div class="profile__content">
+        <img src="./images/avatar.jpg" class="profile__avatar" alt="аватар">
+        <div class="profile__info">
+          <div class="profile__wrapper">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button class="profile__btn-edit profile__btn_type_edit" type="button"></button>
+          </div>
+          <h2 class="profile__about-yourself">Исследователь океана</h2>
+        </div>
+      </div>
+      <button class="profile__btn-add"></button>
+    </section>
+    <section class="photo">
+        <div class="photo__card">
+          <img class="photo__card-image" src="./images/karachaevsk.jpg" alt="Карачаевск">
+          <div class="photo__wrapper">
+          <h2 class="photo__card-text">Карачаевск</h2>
+          <button class="photo__btn-like"></button>
+          </div>
+        </div>
+        <div class="photo__card">
+          <img class="photo__card-image" src="./images/elbrus.jpg" alt="Эльбрус">
+          <div class="photo__wrapper">
+          <h2 class="photo__card-text">Гора Эльбрус</h2>
+          <button class="photo__btn-like"></button>
+          </div>
+        </div>
+        <div class="photo__card">
+          <img class="photo__card-image" src="./images/dombai.jpg" alt="Домбай">
+          <div class="photo__wrapper">
+          <h2 class="photo__card-text">Домбай</h2>
+          <button class="photo__btn-like"></button>
+          </div>
+        </div>
+        <div class="photo__card">
+          <img class="photo__card-image" src="./images/elbrus.jpg" alt="Эльбрус">
+          <div class="photo__wrapper">
+          <h2 class="photo__card-text">Гора Эльбрус</h2>
+          <button class="photo__btn-like"></button>
+          </div>
+        </div>
+        <div class="photo__card">
+          <img class="photo__card-image" src="./images/dombai.jpg" alt="Домбай">
+          <div class="photo__wrapper">
+          <h2 class="photo__card-text">Домбай</h2>
+          <button class="photo__btn-like"></button>
+          </div>
+        </div>
+        <div class="photo__card">
+          <img class="photo__card-image" src="./images/karachaevsk.jpg" alt="Карачаевск">
+          <div class="photo__wrapper">
+          <h2 class="photo__card-text">Карачаево-Черкесия</h2>
+          <button class="photo__btn-like"></button>
+          </div>
+        </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__text">&copy; 2023 Mesto Russia</p>
+  </footer>
+  <section class="popup">
+    <form class="popup__container">
+      <button class="popup__btn-close popup__btn_type_close" type="button"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <input class="popup__input popup__input_type_name" type="text" placeholder="Имя">
+      <input class="popup__input popup__input_type_job" type="text" placeholder="О себе">
+      <button class="popup__btn-save popup__btn_type_submit" type="submit">Сохранить</button>
+    </form>
+  </section>
+  <script src="./scripts/index.js"></script>
+</body>
+</html>
