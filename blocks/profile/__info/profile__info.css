@@ -1,6 +1,16 @@
 .profile__info {
   display: flex;
+  width: 100%;
   flex-direction: column;
+  justify-content: center;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 767px){
+  .profile__info {
+    padding-left: 19px;
+    padding-right: 19px;
+  }
 }

@@ -8,19 +8,14 @@ let jobInput = document.querySelector('.popup__input_type_job');
 let nameBox = document.querySelector('.profile__name');
 let jobBox = document.querySelector('.profile__about-yourself');
 
-nameInput.value = nameBox.textContent;
-jobInput.value = jobBox.textContent;
-
-function togglePopup() {
-  popup.classList.toggle('popup_opened');
-}
-
 function handleEditButtonClick() {
-  togglePopup();
+  popup.classList.add('popup_opened');
+  nameInput.value = nameBox.textContent;
+  jobInput.value = jobBox.textContent;
 }
 
 function handleCloseButtonClick() {
-  togglePopup();
+  popup.classList.remove('popup_opened');
 }
 
 function handleFormSubmit (evt) {
@@ -29,7 +24,7 @@ function handleFormSubmit (evt) {
   let valueJobInput = jobInput.value;
   nameBox.textContent = valueInputName;
   jobBox.textContent = valueJobInput;
-  togglePopup();
+  handleCloseButtonClick();
 }
 
 editButton.addEventListener('click', handleEditButtonClick);

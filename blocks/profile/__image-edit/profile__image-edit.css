@@ -1,0 +1,10 @@
+.profile__image-edit {
+  width: 10px;
+  margin: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__image-edit {
+    width: 7.5px;
+  }
+}

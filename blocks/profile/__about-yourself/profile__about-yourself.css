@@ -1,18 +1,30 @@
 .profile__about-yourself {
-  display: flex;
-  margin: 0;
-  padding: 0;
+  display: block;
+  max-width: 400px;
   font-family: 'Inter', Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
+  text-align: left;
   color: white;
+  margin: 0;
+  padding: 0;
+  margin-top: 16px;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 767px){
   .profile__about-yourself{
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 17px;
     text-align: center;
     margin: auto;
-    margin-bottom: 36px;
+    margin-bottom: 33px;
+    padding-left: 19px;
+    padding-right: 19px;
   }
 }

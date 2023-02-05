@@ -18,6 +18,10 @@
 
 @media screen and (max-width: 615px){
   .popup__btn_type_submit {
+    font-size: 14px;
+    line-height: 17px;
+    margin-top: 22px;
+    margin-bottom: 25px;
     max-width: 238px;
     height: 46px;
   }
