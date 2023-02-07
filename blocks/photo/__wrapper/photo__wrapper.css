@@ -5,9 +5,3 @@
   background-color: white;
   box-sizing: border-box;
 }
-
-@media screen and (max-width: 767px){
-  .profile__wrapper {
-    justify-content: center;
-  }
-}

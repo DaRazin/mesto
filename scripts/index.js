@@ -14,9 +14,14 @@ function handleEditButtonClick() {
   jobInput.value = jobBox.textContent;
 }
 
-function handleCloseButtonClick() {
+function closePopup() {
   popup.classList.remove('popup_opened');
 }
+
+function handleCloseButtonClick() {
+  closePopup();
+}
+
 
 function handleFormSubmit (evt) {
   evt.preventDefault();
@@ -24,7 +29,7 @@ function handleFormSubmit (evt) {
   let valueJobInput = jobInput.value;
   nameBox.textContent = valueInputName;
   jobBox.textContent = valueJobInput;
-  handleCloseButtonClick();
+  closePopup();
 }
 
 editButton.addEventListener('click', handleEditButtonClick);
