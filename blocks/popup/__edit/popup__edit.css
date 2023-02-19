@@ -1,4 +1,4 @@
-.popup__template {
+.popup__edit {
   position: fixed;
   display: flex;
   visibility: hidden;

@@ -24,21 +24,19 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-
 const templateCard = document.querySelector('.photo');
-const popupTempalate = document.querySelector('.popup__template');
 const handleClickDelete = (evt) => {
   evt.target.closest('.photo__card').remove();
 }
 
 const handleClickImage = (evt) => {
   const eventTarget = evt.target.closest('.photo__card');
-  const popupPhotoImage = document.querySelector('.popups__photo-image');
+  const popupPhotoImage = document.querySelector('.popup__photo-image');
   popupPhotoImage.src = eventTarget.querySelector('.photo__card-image').src;
-  const newPopupTitle = document.querySelector('.popups__photo-title');
+  const newPopupTitle = document.querySelector('.popup__photo-title');
   newPopupTitle.textContent = eventTarget.querySelector('.photo__card-text').textContent;
   function openPopupPhoto() {
-    popupPhoto.classList.add('popups_opened');
+    popupPhoto.classList.add('popup_opened');
   }
   openPopupPhoto();
 }
@@ -66,9 +64,9 @@ let closeButtons = document.querySelectorAll('.popup__btn_type_close');
 let saveBatton = document.querySelector('.popup__btn_type_submit');
 let createBatton = document.querySelector('.popup__btn_type_create');
 let addBatton =document.querySelector('.profile__btn_type_add');
-let popupEdit = document.querySelector('.popup-edit');
+let popupEdit = document.querySelector('.popup__edit');
 let popupAdd = document.querySelector('.popup__add');
-let popupPhoto = document.querySelector('.popups__photo');
+let popupPhoto = document.querySelector('.popup__photo');
 let formEdit = document.querySelector('.popup__container_edit');
 let formAdd = document.querySelector('.popup__container_add');
 let nameInput = document.querySelector('.popup__input_type_name');
@@ -77,19 +75,19 @@ let nameBox = document.querySelector('.profile__name');
 let jobBox = document.querySelector('.profile__about-yourself');
 
 function handleEditButtonClick() {
-  popupEdit.classList.add('popups_opened');
+  popupEdit.classList.add('popup_opened');
   nameInput.value = nameBox.textContent;
   jobInput.value = jobBox.textContent;
 }
 
 function handleAddButtonClick() {
-  popupAdd.classList.add('popups_opened');
+  popupAdd.classList.add('popup_opened');
 }
 
 function closePopup() {
-  popupEdit.classList.remove('popups_opened');
-  popupAdd.classList.remove('popups_opened');
-  popupPhoto.classList.remove('popups_opened');
+  popupEdit.classList.remove('popup_opened');
+  popupAdd.classList.remove('popup_opened');
+  popupPhoto.classList.remove('popup_opened');
 }
 
 function handleCloseButtonClick() {

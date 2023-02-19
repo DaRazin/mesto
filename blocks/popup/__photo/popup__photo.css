@@ -1,4 +1,4 @@
-.popups__photo {
+.popup__photo {
   position: fixed;
   display: flex;
   visibility: hidden;
