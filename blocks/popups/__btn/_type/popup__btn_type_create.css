@@ -1,0 +1,28 @@
+.popup__btn_type_create {
+  margin: 18px auto 37px;
+  padding: 0;
+  max-width: 358px;
+  width: 100%;
+  height: 50px;
+  border: none;
+  background-color: black;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: white;
+  border-radius: 2px;
+}
+
+
+@media screen and (max-width: 615px){
+  .popup__btn_type_create {
+    font-size: 14px;
+    line-height: 17px;
+    margin-top: 22px;
+    margin-bottom: 25px;
+    max-width: 238px;
+    height: 46px;
+  }
+}

@@ -1,8 +1,10 @@
 .photo__card {
   display: flex;
+  position: relative;
   flex-direction: column;
   max-width: 282px;
   max-height: 361px;
+  min-height: 361px;
   margin: 0;
   padding: 0;
   border-radius: 10px;
