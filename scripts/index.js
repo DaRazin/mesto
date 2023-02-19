@@ -43,21 +43,6 @@ const handleClickImage = (evt) => {
   openPopupPhoto();
 }
 
-// const handleClickImage = (evt) => {
-//   const eventTarget = evt.target.closest('.photo__card');
-//   const newPopupPhoto = popupTempalate.content.cloneNode(true);
-//   const newImageLink = newPopupPhoto.querySelector('.popups__photo-image');
-//   const newPopupTitle = newPopupPhoto.querySelector('.popups__photo-title');
-//   const newButtonDeletePopup = newPopupPhoto.querySelector('.popup__btn_type_delete');
-//   newImageLink.src = eventTarget.querySelector('.photo__card-image').src;
-//   newPopupTitle.textContent = eventTarget.querySelector('.photo__card-text').textContent;
-//   popupTempalate.append(newPopupPhoto);
-//   const test = document.querySelector('.popups__photo');
-//   newButtonDeletePopup.addEventListener('click', function remove(evt){
-//     evt.target.closest('.popups__photo').remove();
-//   })
-// }
-
 initialCards.forEach(function (item){
   const newPhotoCard = templateCard.content.cloneNode(true);
   const newPhotoTitle = newPhotoCard.querySelector('.photo__card-text');
