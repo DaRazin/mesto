@@ -92,14 +92,14 @@ function handleAddButtonClick() {
   openPopup(popupAdd);
 }
 
-function closePopup() {
-  popupEdit.classList.remove('popup_opened');
-  popupAdd.classList.remove('popup_opened');
-  popupPhoto.classList.remove('popup_opened');
+function closePopup(popup){
+  popup.classList.remove('popup_opened');
 }
 
 function handleCloseButtonClick() {
-  closePopup();
+  closePopup(popupEdit);
+  closePopup(popupAdd);
+  closePopup(popupPhoto);
 }
 
 const createUserCard = () => {
@@ -123,17 +123,17 @@ const createUserCard = () => {
 const handleFormSubmitAdd = (evt) => {
   evt.preventDefault();
   templateCard.prepend(createUserCard());
-  closePopup();
+  closePopup(popupAdd);
   evt.target.reset();
 }
 
 function handleFormSubmitEdit (evt) {
   evt.preventDefault();
-  let valueInputName = nameInput.value;
-  let valueJobInput = jobInput.value;
+  const valueInputName = nameInput.value;
+  const valueJobInput = jobInput.value;
   nameBox.textContent = valueInputName;
   jobBox.textContent = valueJobInput;
-  closePopup();
+  closePopup(popupEdit);
 }
 
 editButton.addEventListener('click', handleEditButtonClick);
