@@ -1,6 +1,8 @@
 .popup__input {
   margin: 0;
   padding: 0;
+  position: relative;
+  width: 358px;
   box-sizing: border-box;
   margin-left: 36px;
   margin-right: 36px;
