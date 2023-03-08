@@ -2,3 +2,10 @@
   top: 210px;
   left: 36px;
 }
+
+@media screen and (max-width: 615px){
+  .popup__error-message_link {
+    top: 214px;
+    left: 22px;
+  }
+}
