@@ -17,40 +17,15 @@ const jobBox = document.querySelector('.profile__about-yourself');
 const titleInput = document.querySelector('.popup__input_type_title');
 const linkInput = document.querySelector('.popup__input_type_link');
 const popupOverlay = document.querySelectorAll('.popup');
-
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
 const templateCard = document.querySelector('.photo');
+
 const handleClickDelete = (evt) => {
   evt.target.closest('.photo__card').remove();
 }
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEsc);
 }
 
 const handleClickImage = (evt) => {
@@ -65,12 +40,12 @@ function createCard(item) {
   const newPhotoCard = templateCard.content.cloneNode(true);
   const newPhotoTitle = newPhotoCard.querySelector('.photo__card-text');
   const newImageButton = newPhotoCard.querySelector('.photo__card-image');
-  newImageButton.alt = item.name;
   const newPhotoLink = newPhotoCard.querySelector('.photo__card-image');
   const newButtonLike = newPhotoCard.querySelector('.photo__btn-like');
   const newButtonDelete = newPhotoCard.querySelector('.photo__btn-delete');
   newPhotoTitle.textContent = item.name;
   newPhotoLink.src = item.link;
+  newImageButton.alt = item.name;
   newImageButton.addEventListener('click', handleClickImage);
   newButtonLike.addEventListener('click', function(event){
     event.target.classList.toggle('photo__btn-like_active');
@@ -95,6 +70,7 @@ function handleAddButtonClick() {
 
 function closePopup(popup){
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEsc);
 }
 
 function handleCloseButtonClick() {
@@ -105,34 +81,21 @@ function handleCloseButtonClick() {
 
 const handleOverlayClick = (evt, popup) => {
   if (evt.target === evt.currentTarget){
-    handleCloseButtonClick();
+    closePopup(evt.target);
   }
-}
-
-const createUserCard = () => {
-  const newPhotoCard = templateCard.content.cloneNode(true);
-  const newPhotoTitle = newPhotoCard.querySelector('.photo__card-text');
-  const newPhotoImage = newPhotoCard.querySelector('.photo__card-image');
-  const newImageButton = newPhotoCard.querySelector('.photo__card-image');
-  newPhotoTitle.textContent = titleInput.value;
-  newPhotoImage.src = linkInput.value;
-  newPhotoImage.alt = titleInput.value;
-  const newButtonLike = newPhotoCard.querySelector('.photo__btn-like');
-  const newButtonDelete = newPhotoCard.querySelector('.photo__btn-delete');
-  newImageButton.addEventListener('click', handleClickImage);
-  newButtonLike.addEventListener('click', function(event){
-    event.target.classList.toggle('photo__btn-like_active');
-  })
-  newButtonDelete.addEventListener('click', handleClickDelete);
-  return newPhotoCard
 }
 
 const handleFormSubmitAdd = (evt) => {
   evt.preventDefault();
-  templateCard.prepend(createUserCard());
+  const newObj = {
+    name: titleInput.value,
+    link: linkInput.value
+  }
+  templateCard.prepend(createCard(newObj));
   closePopup(popupAdd);
   evt.target.reset();
   createButton.classList.add('popup__btn_type_disabled');
+  createButton.setAttribute('disabled', true);
 }
 
 function handleFormSubmitEdit (evt) {
@@ -153,11 +116,9 @@ addButton.addEventListener('click', handleAddButtonClick);
 formEdit.addEventListener('submit', handleFormSubmitEdit);
 formAdd.addEventListener('submit', handleFormSubmitAdd);
 
-const keydownEsc = (evt) => {
-  if (evt.key === 'Escape'){
-    handleCloseButtonClick();
+function closeByEsc(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup); 
   }
-}
-
-document.addEventListener('keydown', keydownEsc);
-
+} 

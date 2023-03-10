@@ -7,7 +7,7 @@ const settings = {
   errorClass: 'popup__error-message_active'
 }
 
-const enableValidation = () => {
+const enableValidation = (settings) => {
   const forms = Array.from(document.querySelectorAll(settings.formSelector));
   forms.forEach ((form) => {
     setEventListeners(form);
