@@ -73,9 +73,9 @@ function closePopup(popup){
   document.removeEventListener('keydown', closeByEsc);
 }
 
-function handleCloseButtonClick() {
-  closePopup(popupEdit);
-  closePopup(popupAdd);
+ function handleCloseButtonClick() {
+   closePopup(popupEdit);
+   closePopup(popupAdd);
   closePopup(popupPhoto);
 }
 
