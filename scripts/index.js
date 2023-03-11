@@ -73,13 +73,11 @@ function closePopup(popup){
   document.removeEventListener('keydown', closeByEsc);
 }
 
- function handleCloseButtonClick() {
-   closePopup(popupEdit);
-   closePopup(popupAdd);
-  closePopup(popupPhoto);
+ function handleCloseButtonClick(evt) {
+  closePopup(evt.target.closest('.popup'));
 }
 
-const handleOverlayClick = (evt, popup) => {
+const handleOverlayClick = (evt) => {
   if (evt.target === evt.currentTarget){
     closePopup(evt.target);
   }
