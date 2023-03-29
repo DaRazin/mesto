@@ -1,8 +1,10 @@
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
+
 const popupPhotoImage = document.querySelector('.popup__photo-image');
 const newPopupTitle = document.querySelector('.popup__photo-title');
 const editButton = document.querySelector('.profile__btn_type_edit');
 const closeButtons = document.querySelectorAll('.popup__btn_type_close');
-const saveButton = document.querySelector('.popup__btn_type_submit');
 const createButton = document.querySelector('.popup__btn_type_create');
 const addButton =document.querySelector('.profile__btn_type_add');
 const popupEdit = document.querySelector('.popup-edit');
@@ -17,16 +19,34 @@ const jobBox = document.querySelector('.profile__about-yourself');
 const titleInput = document.querySelector('.popup__input_type_title');
 const linkInput = document.querySelector('.popup__input_type_link');
 const popupOverlay = document.querySelectorAll('.popup');
-const templateCard = document.querySelector('.photo');
 
-const handleClickDelete = (evt) => {
-  evt.target.closest('.photo__card').remove();
-}
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
 
-function openPopup(popup) {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closeByEsc);
-}
 
 const handleClickImage = (evt) => {
   const eventTarget = evt.target.closest('.photo__card');
@@ -36,27 +56,15 @@ const handleClickImage = (evt) => {
   openPopup(popupPhoto);
 }
 
-function createCard(item) {
-  const newPhotoCard = templateCard.content.cloneNode(true);
-  const newPhotoTitle = newPhotoCard.querySelector('.photo__card-text');
-  const newImageButton = newPhotoCard.querySelector('.photo__card-image');
-  const newPhotoLink = newPhotoCard.querySelector('.photo__card-image');
-  const newButtonLike = newPhotoCard.querySelector('.photo__btn-like');
-  const newButtonDelete = newPhotoCard.querySelector('.photo__btn-delete');
-  newPhotoTitle.textContent = item.name;
-  newPhotoLink.src = item.link;
-  newImageButton.alt = item.name;
-  newImageButton.addEventListener('click', handleClickImage);
-  newButtonLike.addEventListener('click', function(event){
-    event.target.classList.toggle('photo__btn-like_active');
-  })
-  newButtonDelete.addEventListener('click', handleClickDelete);
-return newPhotoCard
-}
+const container = document.querySelector('.app');
 
-initialCards.forEach(function (item){
-  templateCard.append(createCard(item));
-})
+const newCard = new Card(initialCards, container, handleClickImage);
+newCard.render();
+
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEsc);
+}
 
 function handleEditButtonClick() {
   openPopup(popupEdit);
@@ -85,11 +93,14 @@ const handleOverlayClick = (evt) => {
 
 const handleFormSubmitAdd = (evt) => {
   evt.preventDefault();
-  const newObj = {
-    name: titleInput.value,
-    link: linkInput.value
-  }
-  templateCard.prepend(createCard(newObj));
+  const newObj = [
+    {
+      name: titleInput.value,
+      link: linkInput.value
+    }
+  ]
+  const newUserCard = new Card(newObj, container);
+  newUserCard.render();
   closePopup(popupAdd);
   evt.target.reset();
   createButton.classList.add('popup__btn_type_disabled');
@@ -120,3 +131,21 @@ function closeByEsc(evt) {
     closePopup(openedPopup); 
   }
 } 
+
+const configValidation = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__btn',
+  inactiveButtonClass: 'popup__btn_type_disabled',
+  errorClass: 'popup__error-message_active',
+  inputErrorClass: 'popup__input_type_invalid'
+};
+
+const userEditForm = document.querySelector('#edit_user-form');
+const addForm = document.querySelector('#add_form');
+
+const formEditProfileValidation = new FormValidator(configValidation, userEditForm);
+formEditProfileValidation.enableValidation();
+
+const formAddValidation = new FormValidator(configValidation, addForm);
+formAddValidation.enableValidation();

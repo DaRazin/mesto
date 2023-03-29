@@ -27,6 +27,7 @@
       </div>
       <button class="profile__btn profile__btn_type_add" type="button"><img class="profile__image-add" src="./images/btn-add.svg" alt="Добавить"></button>
     </section>
+    <section id="app" class="app"></section>
     <template class="photo">
         <div class="photo__card">
           <img class="photo__card-image" src="#" alt="Фото">
@@ -44,7 +45,7 @@
   <section class="popup popup-edit">
     <div class="popup__container popup__container_edit">
       <button class="popup__btn popup__btn_type_close" type="button"></button>
-      <form class="popup__form" name="user-form" novalidate>
+      <form id="edit_user-form" class="popup__form" name="user-form" novalidate>
         <h2 class="popup__title">Редактировать профиль</h2>
         <input class="popup__input popup__input_type_name" id="name-input" type="text" minlength="2" maxlength="40" placeholder="Имя" required>
         <span class="popup__error-message popup__error-message_title name-input-error"></span>
@@ -57,7 +58,7 @@
   <section class="popup popup-add">
     <div class="popup__container popup__container_add">
       <button class="popup__btn popup__btn_type_close" type="button"></button>
-      <form class="popup__form" name="add-form" novalidate>
+      <form id="add_form" class="popup__form" name="add-form" novalidate>
         <h2 class="popup__title">Новое место</h2>
         <input class="popup__input popup__input_type_title" id="title-input" type="text" placeholder="Название" minlength="2" maxlength="30" required>
         <span class="popup__error-message popup__error-message_title title-input-error"></span>
@@ -74,8 +75,6 @@
       <h3 class="popup__photo-title"></h3>
     </div>
   </section>
-  <script src="./scripts/cards.js"></script>
-  <script src="./scripts/validate.js"></script>
-  <script src="./scripts/index.js"></script>
+  <script src="./scripts/index.js" type="module"></script>
 </body>
 </html>
