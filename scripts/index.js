@@ -94,7 +94,7 @@ const handleFormSubmitAdd = (evt) => {
   createCard(newValue);
   closePopup(popupAdd);
   evt.target.reset();
-  formAddValidation._disabledButton();
+  formAddValidation.disabledButton();
 }
 
 function handleFormSubmitEdit (evt) {

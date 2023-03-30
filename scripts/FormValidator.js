@@ -34,7 +34,7 @@ class FormValidator {
 
   _toggleButtonPopup = () => {
     if (this._hasInvalidInput()) {
-      this._disabledButton();
+      this.disabledButton();
     } else {
       this._enableButton();
     }
@@ -56,7 +56,7 @@ class FormValidator {
     })
   }
   
-  _disabledButton = () => {
+  disabledButton = () => {
     this._buttonElement.classList.add(this._settings.inactiveButtonClass);
     this._buttonElement.setAttribute('disabled', true);
   }
