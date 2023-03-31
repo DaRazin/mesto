@@ -1,14 +1,13 @@
 class Card {
   static _templateCard = document.querySelector('.photo').content;
 
-  constructor(value, container, handleClickImage){
+  constructor(value, handleClickImage){
     this._name = value.name;
     this._link = value.link;
-    this._container = container;
     this._handleClickImage = handleClickImage;
   }
 
-  _createCard() {
+  createCard() {
     this._newPhotoCard =  Card._templateCard.cloneNode(true).children[0];
     this._newPhotoTitle = this._newPhotoCard.querySelector('.photo__card-text');
     this._newImageButton = this._newPhotoCard.querySelector('.photo__card-image');
@@ -35,10 +34,6 @@ class Card {
     this._newButtonLike.addEventListener('click', this._handleClickLike);
     this._newButtonDelete.addEventListener('click', this._handleClickDelete);
   }
-
-  render() {
-      this._container.prepend(this._createCard());
-    }
 }
 
 export default Card;

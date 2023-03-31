@@ -31,12 +31,16 @@ const handleClickImage = (evt) => {
 }
 
 function createCard(objValues){
-  const newCard = new Card(objValues, container, handleClickImage).render();
+  const newCard = new Card(objValues, handleClickImage).createCard();
   return newCard;
 }
 
+const render = (card) => {
+  container.prepend(card);
+}
+
 initialCards.forEach((value) => {
-  createCard(value);
+  render(createCard(value));
 })
 
 const configValidation = {
@@ -91,7 +95,7 @@ const handleFormSubmitAdd = (evt) => {
       name: titleInput.value,
       link: linkInput.value
     }
-  createCard(newValue);
+  render(createCard(newValue));
   closePopup(popupAdd);
   evt.target.reset();
   formAddValidation.disabledButton();

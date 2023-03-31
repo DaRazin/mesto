@@ -13,8 +13,8 @@ class FormValidator {
   _setEventListeners(){
     this._inputs.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
-        this._checkInputState(inputElement, this._settings);
-        this._toggleButtonPopup(this._inputs, this._buttonElement, this._settings);
+        this._checkInputState(inputElement);
+        this._toggleButtonPopup();
       })
     })
   }
