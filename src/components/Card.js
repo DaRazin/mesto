@@ -1,10 +1,10 @@
 class Card {
   static _templateCard = document.querySelector('.photo').content;
 
-  constructor(value, handleClickImage){
+  constructor(value, handleCardClick){
     this._name = value.name;
     this._link = value.link;
-    this._handleClickImage = handleClickImage;
+    this._handleCardClick = handleCardClick;
   }
 
   createCard() {
@@ -30,7 +30,7 @@ class Card {
     }
   
   _setEventListeners() {
-    this._newImageButton.addEventListener('click', this._handleClickImage);
+    this._newImageButton.addEventListener('click', this._handleCardClick);
     this._newButtonLike.addEventListener('click', this._handleClickLike);
     this._newButtonDelete.addEventListener('click', this._handleClickDelete);
   }

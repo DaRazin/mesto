@@ -7,25 +7,24 @@
   <meta name="keywords" content="--------------------------------------------------">
   <meta name="author" content="Разин Даниил">
   <title>mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="page">
   <header class="header">
-    <img src="./images/logo.png" class="header__logo" alt="Логотип">
+    <img src="<%=require('./images/logo.png')%>" class="header__logo" alt="Логотип">
   </header>
   <main class="content">
     <section class="profile">
       <div class="profile__content">
-        <img src="./images/avatar.jpg" class="profile__avatar" alt="аватар">
+        <img src="<%=require('./images/avatar.jpg')%>" class="profile__avatar" alt="аватар">
         <div class="profile__info">
           <div class="profile__wrapper">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button class="profile__btn profile__btn_type_edit" type="button"><img class="profile__image-edit" src="./images/btn-edit.svg" alt="Редактировать"></button>
+            <button class="profile__btn profile__btn_type_edit" type="button"><img class="profile__image-edit" src="<%=require('./images/btn-edit.svg')%>" alt="Редактировать"></button>
           </div>
           <h2 class="profile__about-yourself">Исследователь океана</h2>
         </div>
       </div>
-      <button class="profile__btn profile__btn_type_add" type="button"><img class="profile__image-add" src="./images/btn-add.svg" alt="Добавить"></button>
+      <button class="profile__btn profile__btn_type_add" type="button"><img class="profile__image-add" src="<%=require('./images/btn-add.svg')%>" alt="Добавить"></button>
     </section>
     <section id="app" class="app"></section>
     <template class="photo">
@@ -47,9 +46,9 @@
       <button class="popup__btn popup__btn_type_close" type="button"></button>
       <form id="edit_user-form" class="popup__form" name="user-form" novalidate>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input class="popup__input popup__input_type_name" id="name-input" type="text" minlength="2" maxlength="40" placeholder="Имя" required>
+        <input class="popup__input popup__input_type_name" id="name-input" name="user-name" type="text" minlength="2" maxlength="40" placeholder="Имя" required>
         <span class="popup__error-message popup__error-message_title name-input-error"></span>
-        <input class="popup__input popup__input_type_job" id="job-input" type="text" minlength="2" maxlength="200" placeholder="О себе" required>
+        <input class="popup__input popup__input_type_job" id="job-input" name="user-job" type="text" minlength="2" maxlength="200" placeholder="О себе" required>
         <span class="popup__error-message popup__error-message_link job-input-error"></span>
         <button class="popup__btn popup__btn_type_submit" type="submit">Сохранить</button>
       </form>
@@ -60,7 +59,7 @@
       <button class="popup__btn popup__btn_type_close" type="button"></button>
       <form id="add_form" class="popup__form" name="add-form" novalidate>
         <h2 class="popup__title">Новое место</h2>
-        <input class="popup__input popup__input_type_title" id="title-input" type="text" placeholder="Название" minlength="2" maxlength="30" required>
+        <input class="popup__input popup__input_type_title" id="title-input" name="title" type="text" placeholder="Название" minlength="2" maxlength="30" required>
         <span class="popup__error-message popup__error-message_title title-input-error"></span>
         <input class="popup__input popup__input_type_link" id="link-input" name="url" type="url" placeholder="Ссылка на картинку" required>
         <span class="popup__error-message popup__error-message_link link-input-error"></span>
@@ -75,7 +74,5 @@
       <h3 class="popup__photo-title"></h3>
     </div>
   </section>
-  <script src="./scripts/cards.js"></script>
-  <script src="./scripts/index.js" type="module"></script>
 </body>
 </html>
