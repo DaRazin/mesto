@@ -1,14 +1,13 @@
 class Card {
-  static _templateCard = document.querySelector('.photo').content;
-
-  constructor(value, handleCardClick){
+  constructor(value, templateCard, handleCardClick){
+    this._templateCard = templateCard;
     this._name = value.name;
     this._link = value.link;
     this._handleCardClick = handleCardClick;
   }
 
   createCard() {
-    this._newPhotoCard =  Card._templateCard.cloneNode(true).children[0];
+    this._newPhotoCard =  this._templateCard.cloneNode(true).content.querySelector('.photo__card');
     this._newPhotoTitle = this._newPhotoCard.querySelector('.photo__card-text');
     this._newImageButton = this._newPhotoCard.querySelector('.photo__card-image');
     this._newPhotoLink = this._newPhotoCard.querySelector('.photo__card-image');
@@ -26,11 +25,13 @@ class Card {
   }
 
   _handleClickDelete = () => {
-      this._newPhotoCard.remove();
+    this._newPhotoCard.remove();
     }
   
   _setEventListeners() {
-    this._newImageButton.addEventListener('click', this._handleCardClick);
+    this._newImageButton.addEventListener('click', () => {
+      this._handleCardClick(this._name, this._link);
+    });
     this._newButtonLike.addEventListener('click', this._handleClickLike);
     this._newButtonDelete.addEventListener('click', this._handleClickDelete);
   }
