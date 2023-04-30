@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <meta name="description" content="----------------------------------------------">
+  <meta name="keywords" content="--------------------------------------------------">
+  <meta name="author" content="Разин Даниил">
+  <title>mesto</title>
+<script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
+<body class="page">
+  <header class="header">
+    <img src="05837ae9945f96a2e4de.png" class="header__logo" alt="Логотип">
+  </header>
+  <main class="content">
+    <section class="profile">
+      <div class="profile__content">
+        <img src="717ae23a264d020be959.jpg" class="profile__avatar" alt="аватар">
+        <div class="profile__info">
+          <div class="profile__wrapper">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button class="profile__btn profile__btn_type_edit" type="button"><img class="profile__image-edit" src="8667ac4a523e8fc42e59.svg" alt="Редактировать"></button>
+          </div>
+          <h2 class="profile__about-yourself">Исследователь океана</h2>
+        </div>
+      </div>
+      <button class="profile__btn profile__btn_type_add" type="button"><img class="profile__image-add" src="d86bb2edc2f6eadb96b7.svg" alt="Добавить"></button>
+    </section>
+    <section id="app" class="app"></section>
+    <template class="photo">
+        <div class="photo__card">
+          <img class="photo__card-image" src="#" alt="Фото">
+          <button class="photo__btn-delete" type="button"></button>
+          <div class="photo__wrapper">
+            <h2 class="photo__card-text">Заголовок</h2>
+            <button class="photo__btn-like" type="button"></button>
+          </div>
+        </div>
+    </template>
+  </main>
+  <footer class="footer">
+    <p class="footer__text">&copy; 2023 Mesto Russia</p>
+  </footer>
+  <section class="popup popup-edit">
+    <div class="popup__container popup__container_edit">
+      <button class="popup__btn popup__btn_type_close" type="button"></button>
+      <form id="edit_user-form" class="popup__form" name="user-form" novalidate>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <input class="popup__input popup__input_type_name" id="name-input" name="name" type="text" minlength="2" maxlength="40" placeholder="Имя" required>
+        <span class="popup__error-message popup__error-message_title name-input-error"></span>
+        <input class="popup__input popup__input_type_job" id="job-input" name="job" type="text" minlength="2" maxlength="200" placeholder="О себе" required>
+        <span class="popup__error-message popup__error-message_link job-input-error"></span>
+        <button class="popup__btn popup__btn_type_submit" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </section>
+  <section class="popup popup-add">
+    <div class="popup__container popup__container_add">
+      <button class="popup__btn popup__btn_type_close" type="button"></button>
+      <form id="add_form" class="popup__form" name="add-form" novalidate>
+        <h2 class="popup__title">Новое место</h2>
+        <input class="popup__input popup__input_type_title" id="title-input" name="name" type="text" placeholder="Название" minlength="2" maxlength="30" required>
+        <span class="popup__error-message popup__error-message_title title-input-error"></span>
+        <input class="popup__input popup__input_type_link" id="link-input" name="link" type="url" placeholder="Ссылка на картинку" required>
+        <span class="popup__error-message popup__error-message_link link-input-error"></span>
+        <button class="popup__btn popup__btn_type_create popup__btn_type_disabled" type="submit" disabled>Создать</button>
+      </form>
+    </div>
+  </section>
+  <section class="popup popup-photo">
+    <div class="popup__photo-container">
+      <button class="popup__btn popup__btn_type_close" type="button"></button>
+      <img class="popup__photo-image" src="#" alt="Фото">
+      <h3 class="popup__photo-title"></h3>
+    </div>
+  </section>
+</body>
+</html>
