@@ -15,13 +15,16 @@
   <main class="content">
     <section class="profile">
       <div class="profile__content">
-        <img src="<%=require('./images/avatar.jpg')%>" class="profile__avatar" alt="аватар">
+        <div class="profile__avatar-block">
+          <img src="#" class="profile__avatar" alt="аватар">
+          <img src="<%=require('./images/btn-edit_avatar.svg')%>" class="profile__btn_type_edit-avatar" alt="Редактировать аватар">
+        </div>
         <div class="profile__info">
           <div class="profile__wrapper">
-            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <h1 class="profile__name"></h1>
             <button class="profile__btn profile__btn_type_edit" type="button"><img class="profile__image-edit" src="<%=require('./images/btn-edit.svg')%>" alt="Редактировать"></button>
           </div>
-          <h2 class="profile__about-yourself">Исследователь океана</h2>
+          <h2 class="profile__about-yourself"></h2>
         </div>
       </div>
       <button class="profile__btn profile__btn_type_add" type="button"><img class="profile__image-add" src="<%=require('./images/btn-add.svg')%>" alt="Добавить"></button>
@@ -34,6 +37,7 @@
           <div class="photo__wrapper">
             <h2 class="photo__card-text">Заголовок</h2>
             <button class="photo__btn-like" type="button"></button>
+            <p class="photo__counter-like"></p>
           </div>
         </div>
     </template>
@@ -63,7 +67,27 @@
         <span class="popup__error-message popup__error-message_title title-input-error"></span>
         <input class="popup__input popup__input_type_link" id="link-input" name="link" type="url" placeholder="Ссылка на картинку" required>
         <span class="popup__error-message popup__error-message_link link-input-error"></span>
-        <button class="popup__btn popup__btn_type_create popup__btn_type_disabled" type="submit" disabled>Создать</button>
+        <button class="popup__btn popup__btn_type_create popup__btn_type_disabled popup__btn_type_submit" type="submit" disabled>Создать</button>
+      </form>
+    </div>
+  </section>
+  <section class="popup popup-delete">
+    <div class="popup__container popup__container_add">
+      <button class="popup__btn popup__btn_type_close" type="button"></button>
+      <form id="delete_form" class="popup__form" name="delete-form">
+        <h2 class="popup__title">Вы уверены?</h2>
+        <button class="popup__btn popup__btn_type_approval" type="submit">Да</button>
+      </form>
+    </div>
+  </section>
+  <section class="popup popup-edit_avatar">
+    <div class="popup__container popup__container_edit">
+      <button class="popup__btn popup__btn_type_close" type="button"></button>
+      <form id="edit_avatar-form" class="popup__form" name="user-form" novalidate>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <input class="popup__input popup__input_type_name" id="name-input" name="link" type="url" placeholder="Ссылка на картинку" required>
+        <span class="popup__error-message popup__error-message_title name-input-error"></span>
+        <button class="popup__btn popup__btn_type_submit popup__btn_type_disabled" type="submit" disabled>Сохранить</button>
       </form>
     </div>
   </section>

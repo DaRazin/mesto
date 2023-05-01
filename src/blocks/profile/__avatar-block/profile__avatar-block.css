@@ -1,14 +1,14 @@
-.profile__content {
+.profile__avatar-block{
   position: relative;
   display: flex;
-  width: 100%;
+  width: max-content;
   flex-direction: row;
   margin: 0;
   padding: 0;
 }
 
 @media screen and (max-width: 767px){
-  .profile__content{
+  .profile__avatar-block{
     flex-direction: column;
     justify-content: center;
     margin: auto;

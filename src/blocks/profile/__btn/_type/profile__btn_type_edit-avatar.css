@@ -1,0 +1,7 @@
+.profile__btn_type_edit-avatar {
+  position: absolute;
+  left: 47px;
+  top: 47px;
+  display: none;
+  pointer-events: none;
+}
