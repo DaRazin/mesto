@@ -17,7 +17,7 @@
       <div class="profile__content">
         <div class="profile__avatar-block">
           <img src="#" class="profile__avatar" alt="аватар">
-          <img src="<%=require('./images/btn-edit_avatar.svg')%>" class="profile__btn_type_edit-avatar" alt="Редактировать аватар">
+          <img src="<%=require('./images/btn-edit_avatar.svg')%>" class="profile__btn profile__btn_type_edit-avatar" alt="Редактировать аватар">
         </div>
         <div class="profile__info">
           <div class="profile__wrapper">
@@ -80,13 +80,13 @@
       </form>
     </div>
   </section>
-  <section class="popup popup-edit_avatar">
+  <section class="popup popup-avatar">
     <div class="popup__container popup__container_edit">
       <button class="popup__btn popup__btn_type_close" type="button"></button>
       <form id="edit_avatar-form" class="popup__form" name="user-form" novalidate>
         <h2 class="popup__title">Обновить аватар</h2>
         <input class="popup__input popup__input_type_link" id="url-input" name="link" type="url" placeholder="Ссылка на картинку" required>
-        <span class="popup__error-message popup__error-message_title name-input-error"></span>
+        <span class="popup__error-message popup__error-message_title url-input-error"></span>
         <button class="popup__btn popup__btn_type_submit popup__btn_type_disabled" type="submit" disabled>Сохранить</button>
       </form>
     </div>

@@ -144,7 +144,7 @@ function handleFormSubmitEdit(newValues, buttonSubmit) {
   })
 }
 
-const popupEditAvatar = new PopupWithForm('.popup-edit_avatar', handleFormEditAvatar);
+const popupEditAvatar = new PopupWithForm('.popup-avatar', handleFormEditAvatar);
 popupEditAvatar.setEventListenenrs();
 
 function handleEditAvatarButtonClick() {
