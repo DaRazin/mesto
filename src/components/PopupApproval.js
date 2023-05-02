@@ -13,19 +13,15 @@ export default class PopupApproval extends Popup {
     super.open();
   }
 
+  setSubmitBtnText(text) {
+    this._btnDelete.textContent = text;
+  }
+
   setEventListenenrs(){
     super.setEventListenenrs();
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
-      const defaultTextBtn = this._btnDelete.textContent;
-      this._btnDelete.textContent = 'Удаление...';
-      this._submitFormDelete(this._card, this._cardId)
-      .then(() => {
-        this.close();
-      })
-      .finally(() => {
-        this._btnDelete.textContent = defaultTextBtn;
-      })
+      this._submitFormDelete(this._card, this._cardId);
     });
   }
 }

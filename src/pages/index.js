@@ -20,9 +20,11 @@ Promise.all([
   api.getInitialCards()
 ])
 .then(([info, initialCards]) => {
-  profileName.textContent = info.name;
-  profileAboutUser.textContent = info.about;
-  avatarUser.src = info.avatar;
+  userData.setUserInfo({
+    name: info.name,
+    job: info.about, 
+  })
+  userData.setUserAvatar(info.avatar);
   userId = info._id;
   initialCardList.rendererItems(initialCards);
 })
@@ -80,6 +82,7 @@ function handleAddButtonClick() {
 }
 
 function handleFormSubmitAdd(newValues) {
+  popupAddCard.setSubmitBtnText('Сохранение...');
   return api.sendNewCard(newValues)
   .then((result) => {
     initialCardList.addItem(createCard(result, templateCard, handleCardClick, handleDeleteCard, userId, handleAddLike, handleDeleteLike));
@@ -87,6 +90,9 @@ function handleFormSubmitAdd(newValues) {
   })
   .catch((err) => {
     console.log(err);
+  })
+  .finally(() => {
+    popupAddCard.setSubmitBtnText('Создать');
   })
 }
 
@@ -97,6 +103,7 @@ const popupDeleteCard = new PopupApproval('.popup-delete', handleSubmitDelete)
 popupDeleteCard.setEventListenenrs();
 
 function handleSubmitDelete(card, cardId){
+  popupDeleteCard.setSubmitBtnText('Удаление...');
   return api.deleteCard(cardId)
   .then(() => {
     card.deleteCard();
@@ -105,19 +112,26 @@ function handleSubmitDelete(card, cardId){
   .catch((err) => {
     console.log(err);
   })
+  .finally(() => {
+    popupDeleteCard.setSubmitBtnText('Да');
+  })
 }
 
 function handleFormSubmitEdit(newValues) {
-  userData.setUserInfo({
-    name: newValues.name,
-    job: newValues.job
-  })
+  popupEditProfile.setSubmitBtnText('Сохранение...');
   return api.sendUserInfo(newValues)
   .then(() => {
+    userData.setUserInfo({
+      name: newValues.name,
+      job: newValues.job
+    })
     popupEditProfile.close();
   })
   .catch((err) => {
     console.log(err);
+  })
+  .finally(() => {
+    popupEditProfile.setSubmitBtnText('Сохранить');
   })
 }
 
@@ -131,6 +145,7 @@ function handleEditAvatarButtonClick() {
 
 
 function handleFormEditAvatar(newValues) {
+  popupEditAvatar.setSubmitBtnText('Сохранение...');
   return api.sendAvatarUser(newValues)
   .then((res) => {
     userData.setUserAvatar(res.avatar);
@@ -139,7 +154,9 @@ function handleFormEditAvatar(newValues) {
   .catch((err) => {
     console.log(err);
   })
-
+  .finally(() => {
+    popupEditAvatar.setSubmitBtnText('Сохранить');
+  })
 }
 
 const popupEditProfile = new PopupWithForm('.popup-edit', handleFormSubmitEdit);
