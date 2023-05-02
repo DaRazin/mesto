@@ -36,8 +36,7 @@ class Card {
     return (this._userLikeList.find((item) => item._id === this._userId))
   }
 
-  _handleClickLike = (evt) => {
-    evt.target.classList.toggle('photo__btn-like_active');
+  _handleClickLike = () => {
     if (this._checkUserLike()){
       this._handleDeleteLike(this);
     } else {
@@ -48,6 +47,11 @@ class Card {
   renderLike(res){
     this._userLikeList = res.likes;
     this._counterLike.textContent = res.likes.length;
+    if (this._checkUserLike()) {
+      this._newButtonLike.classList.add('photo__btn-like_active');
+    } else {
+      this._newButtonLike.classList.remove('photo__btn-like_active');
+    }
   }
 
   deleteCard = () => {

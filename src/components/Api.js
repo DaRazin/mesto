@@ -4,16 +4,19 @@ class Api {
     this._headers = headers;
   }
 
+  _getResponseData(res) {
+    if (!res.ok) {
+        return Promise.reject(`Ошибка: ${res.status}`); 
+    }
+    return res.json();
+}
+
   getInitialCards(){
     return fetch (`${this._url}cards`, {
       headers: this._headers,
     })
     .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Ошибка: ${res.status}`);
-      }
+      return this._getResponseData(res);
     })
   }
 
@@ -22,11 +25,7 @@ class Api {
       headers: this._headers,
     })
     .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Ошибка: ${res.status}`);
-      }
+      return this._getResponseData(res);
     })
   }
 
@@ -39,11 +38,7 @@ class Api {
       })
     })
     .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Ошибка: ${res.status}`);
-      }
+      return this._getResponseData(res);
     })
   }
 
@@ -57,11 +52,7 @@ class Api {
       })
     })
     .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Ошибка: ${res.status}`);
-      }
+      return this._getResponseData(res);
     })
   }
 
@@ -71,11 +62,7 @@ class Api {
       headers: this._headers,
     })
     .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Ошибка: ${res.status}`);
-      }
+      return this._getResponseData(res);
     })
   }
 
@@ -89,11 +76,7 @@ class Api {
       })
     })
     .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Ошибка: ${res.status}`);
-      }
+      return this._getResponseData(res);
     })
   }
 
@@ -103,11 +86,7 @@ class Api {
       headers: this._headers,
       })
     .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Ошибка: ${res.status}`);
-      }
+      return this._getResponseData(res);
     })
   }
 
@@ -117,11 +96,7 @@ class Api {
       headers: this._headers,
       })
     .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Ошибка: ${res.status}`);
-      }
+      return this._getResponseData(res);
     })
   }
 }
